@@ -1,7 +1,7 @@
 # Changing-Screensaver
 
 ## Repository
-<Link to your project's public GitHub respository>
+[<Link to your project's public GitHub respository>](https://github.com/Megha0704/PDFA-Proposal.git)
 
 ## Description
 My project should change between different pieces of predetermined artworks. The relevance will be that it is a graphic and can be the full length and width of a screen.
