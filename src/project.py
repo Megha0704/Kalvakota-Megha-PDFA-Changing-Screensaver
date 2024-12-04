@@ -22,7 +22,7 @@ def scale_image(image, screen_size):
     return scaled_image
 
 def apply_invert(image):
-    arr = pygame.surfarray3d(image)
+    arr = pygame.surfarray.array3d(image)
     arr = 255 - arr
     return pygame.surfarray.make_surface(arr)
 
@@ -51,8 +51,7 @@ def main():
     running = True
     auto_cycle = pygame.USEREVENT + 1
     pygame.time.set_timer(auto_cycle, 3500)
-    current_image = None
-    original_image = None
+    effect = None
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -65,7 +64,9 @@ def main():
                 elif event.key == pygame.K_LEFT:
                     current_image = (current_image - 1) %len(artworks)
                 elif event.key == pygame.K_i:
-                    current_image = apply_invert(image)
+                    effect = 'invert'
+                elif event.key == pygame.K_z:
+                    effect = None
                 elif event.key == pygame.K_a:
                     add_images(folder_path)
                     artworks = load_images(folder_path)
@@ -74,11 +75,13 @@ def main():
                 current_image = (current_image + 1) % len(artworks)
         screen.fill ((0, 0, 0))
         image = scale_image(artworks[current_image], screen.get_size())
+        if effect == 'invert':
+            image = apply_invert(image)
         x = (screen.get_width() - image.get_width()) // 2
         y = (screen.get_height() - image.get_height()) // 2
         screen.blit(image, (x, y))
         pygame.display.flip()
-    pygame.QUIT
+    pygame.quit()
 
 if __name__ == "__main__":
     main()
