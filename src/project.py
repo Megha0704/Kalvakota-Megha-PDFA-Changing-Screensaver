@@ -42,8 +42,10 @@ def main():
                 elif event.key == pygame.K_LEFT:
                     current_image = (current_image - 1) %len(artworks)
         screen.fill ((0, 0, 0))
-        image = pygame.transform.scale(artworks[current_image], screen.get_size())
-        screen.blit(image, (0, 0))
+        image = scale_image(artworks[current_image], screen.get_size())
+        x = (screen.get_width() - image.get_width()) // 2
+        y = (screen.get_height() - image.get_height()) // 2
+        screen.blit(image, (x, y))
         pygame.display.flip()
     pygame.QUIT
 
