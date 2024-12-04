@@ -12,6 +12,8 @@ def load_images(folder):
 def scale_image(image, screen_size):
     img_width, img_height = image.get_size()
     screen_width, screen_height = screen_size
+    if img_width == 0 or img_height == 0:
+        raise ValueError("Invalid image dimensions")
     scale_factor = min(screen_width / img_width, screen_height / img_height)
     new_width = int(img_width * scale_factor)
     new_height = int(img_height * scale_factor)
@@ -26,6 +28,8 @@ def main():
     artworks = load_images(folder_path)
     current_image = 0 
     running = True
+    Auto_Cycle = pygame.USEREVENT + 1
+    pygame.time.set_timer(Auto_Cycle, 3500)
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
