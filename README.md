@@ -1,52 +1,13 @@
-# Changing-Screensaver
+# CHANGING SCREENSAVER
 
-## Repository
-https://github.com/Megha0704/PDFA-Proposal.git
+## Demo
+Demo Video: <...>
+## Github Repository
+Github Repo: <https://github.com/Megha0704/PDFA-Proposal.git>
 
 ## Description
-My project should change between different pieces of predetermined artworks. The relevance will be that it is a graphic that can be interacted with on a full screen of device.
+This project focuses on changing the appearance of a screensaver at will. It could help users who are like me who want a new screensaver but don't want to go through the hassle of manually searching for new images. I really like the concept of this project because a simple click of a button transforms your entire screen with color and if you really desire, you can add your own images to give the project a personal touch. 
 
-## Features
-- Full Screen
-	- When the program is run, the screen will automatically take over the full screen.
-- Manual Switch Between Art
-	- When a key on the keyboard is clicked, the artwork on the screen will automatically change.
-- Personal Imagers
-  - If the user wishes to add their own images they will be able to do so
-- Image Changing 
-  - If the user wishes they can change the look of the image color or orientation 
+Changing between grayscale to inverted colors then back to regular colors is very eyecatching. However, my favorite feature has to be the 'a' button. When pressed, the 'a' button prompts the user through the terminal for a file path. I like this feature, because when coding I added some "flare" to the dialog that is displayed. little things such as a :( to show a sad face or !! because the file upload was successful, it also feels like I personally am telling the user "I'm happy that my program worked for you, and that you can personalize it to your liking."
 
-## Challenges
-- I will need to research different artworks that I would like to keep in the library
-- I will also need to figure out how to load multiple images into a library
-- Coding a key to be used to manually change the screensaver
-
-## Outcomes
-Ideal Outcome:
-- The screen will automatically load as a full screen and minimize.
-- Artwork will show up in the correct format and pixelation
-- Button to change artworks will work properly
-- User will be able to interact with the user interface properly
-
-Minimal Viable Outcome:
-- Code will automatically pull up a full screen.
-- Screensaver will automatically change artworks on its own
-
-## Milestones
-
-- Week 1
-  1. Find Artworks
-  2. Create Library
-
-- Week 2
-  1. Add to Library 
-  2. Start Initial Coding
-  3. Start the link to the Library
-
-- Week 3
-  1. Start and finish coding to Full Screen
-  2. Start coding to Keystrokes
-
-- Week 4 (Final)
-  1. Finish coding to Keystrokes
-  2. Final touchups 
+For this project I had to go back through lectures to relearn grayscale, screens, etc. I also had to research different PILs such as 'shutil' and 'os' to try and get the right outcome for my project. Everytime I got each individual part to start working, I would be so thrilled with myself for properly getting the code right and the hirearchy right. Each individual component brought it's fair share of challenges, some crashing my computer, others just made the program unusable. Thoroughout this process of being successful then failing again, I learned to be accepting of the journey to success. 
