@@ -1,6 +1,7 @@
 import pygame
 import os
 import random
+import shutil
 
 def load_images(folder):
     images = []
@@ -20,6 +21,11 @@ def scale_image(image, screen_size):
     scaled_image = pygame.transform.scale(image, (new_width, new_height))
     return scaled_image
 
+def apply_invert(image):
+    arr = pygame.surfarray3d(image)
+    arr = 255 - arr
+    return pygame.surfarray.make_surface(arr)
+
 def add_images(folder):
     print("Please enter the full file path of images you would like to add!")
     file_path = input(">")
@@ -27,7 +33,7 @@ def add_images(folder):
         if file_path.endswith(('.png', '.jpg','.jpeg')):
             try:
                 shutil.copy(file_path, folder)
-                print(f"Your image successfully added!")
+                print(f"Your image successfully added! Image is now in {folder}")
             except Exception as e:
                 print(f"Failed to add image: {e} :(")
         else:
@@ -45,6 +51,8 @@ def main():
     running = True
     auto_cycle = pygame.USEREVENT + 1
     pygame.time.set_timer(auto_cycle, 3500)
+    current_image = None
+    original_image = None
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -56,10 +64,12 @@ def main():
                     current_image = (current_image + 1) % len(artworks)
                 elif event.key == pygame.K_LEFT:
                     current_image = (current_image - 1) %len(artworks)
+                elif event.key == pygame.K_i:
+                    current_image = apply_invert(image)
                 elif event.key == pygame.K_a:
                     add_images(folder_path)
                     artworks = load_images(folder_path)
-                    print("Your Image was successfully uploaded!")
+                    print("List updated!")
             if event.type == auto_cycle:
                 current_image = (current_image + 1) % len(artworks)
         screen.fill ((0, 0, 0))
