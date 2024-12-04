@@ -20,6 +20,21 @@ def scale_image(image, screen_size):
     scaled_image = pygame.transform.scale(image, (new_width, new_height))
     return scaled_image
 
+def add_images(folder):
+    print("Please enter the full file path of images you would like to add!")
+    file_path = input(">")
+    if os.path.isfile(file_path):
+        if file_path.endswith(('.png', '.jpg','.jpeg')):
+            try:
+                shutil.copy(file_path, folder)
+                print(f"Your image successfully added!")
+            except Exception as e:
+                print(f"Failed to add image: {e} :(")
+        else:
+            print("Format is invalid. Please use '.png', 'jpg', or '.jpeg'.")
+    else:
+        print("Invalid file path.")
+
 def main():
     pygame.init()
     pygame.display.set_caption("Changing Screensaver")
@@ -41,6 +56,10 @@ def main():
                     current_image = (current_image + 1) % len(artworks)
                 elif event.key == pygame.K_LEFT:
                     current_image = (current_image - 1) %len(artworks)
+                elif event.key == pygame.K_a:
+                    add_images(folder_path)
+                    artworks = load_images(folder_path)
+                    print("Your Image was successfully uploaded!")
             if event.type == auto_cycle:
                 current_image = (current_image + 1) % len(artworks)
         screen.fill ((0, 0, 0))
