@@ -26,6 +26,14 @@ def apply_invert(image):
     arr = 255 - arr
     return pygame.surfarray.make_surface(arr)
 
+def apply_grayscale(image):
+    arr = pygame.surfarray.array3d(image)
+    grayscale = (arr [..., 0] + arr [..., 1] + arr [..., 2]) // 3
+    arr[..., 0] = grayscale
+    arr[..., 1] = grayscale
+    arr[..., 2] = grayscale
+    return pygame.surfarray.make_surface(arr)
+
 def add_images(folder):
     print("Please enter the full file path of images you would like to add!")
     file_path = input(">")
@@ -65,6 +73,8 @@ def main():
                     current_image = (current_image - 1) %len(artworks)
                 elif event.key == pygame.K_i:
                     effect = 'invert'
+                elif event.key == pygame.K_g:
+                    effect = 'grayscale'
                 elif event.key == pygame.K_z:
                     effect = None
                 elif event.key == pygame.K_a:
@@ -77,6 +87,8 @@ def main():
         image = scale_image(artworks[current_image], screen.get_size())
         if effect == 'invert':
             image = apply_invert(image)
+        if effect == 'grayscale':
+            image = apply_grayscale(image)
         x = (screen.get_width() - image.get_width()) // 2
         y = (screen.get_height() - image.get_height()) // 2
         screen.blit(image, (x, y))
