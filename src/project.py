@@ -58,7 +58,7 @@ def main():
     current_image = 0 
     running = True
     auto_cycle = pygame.USEREVENT + 1
-    pygame.time.set_timer(auto_cycle, 3500)
+    pygame.time.set_timer(auto_cycle, 6500)
     effect = None
     while running:
         for event in pygame.event.get():
