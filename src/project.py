@@ -1,6 +1,5 @@
 import pygame
 import os
-import random
 import shutil
 
 def load_images(folder):
@@ -35,13 +34,14 @@ def apply_grayscale(image):
     return pygame.surfarray.make_surface(arr)
 
 def add_images(folder):
-    print("Please enter the full file path of images you would like to add!")
+    print("Please enter the FULL file path of images you would like to add!")
     file_path = input(">")
     if os.path.isfile(file_path):
         if file_path.endswith(('.png', '.jpg','.jpeg')):
             try:
                 shutil.copy(file_path, folder)
-                print(f"Your image successfully added! Image is now in {folder}")
+                print(f"Your image was successfully added!!
+                       Image is now in {folder}, how exciting!!")
             except Exception as e:
                 print(f"Failed to add image: {e} :(")
         else:
