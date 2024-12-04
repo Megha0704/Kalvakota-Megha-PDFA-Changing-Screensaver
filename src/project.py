@@ -28,8 +28,8 @@ def main():
     artworks = load_images(folder_path)
     current_image = 0 
     running = True
-    Auto_Cycle = pygame.USEREVENT + 1
-    pygame.time.set_timer(Auto_Cycle, 3500)
+    auto_cycle = pygame.USEREVENT + 1
+    pygame.time.set_timer(auto_cycle, 3500)
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -41,6 +41,8 @@ def main():
                     current_image = (current_image + 1) % len(artworks)
                 elif event.key == pygame.K_LEFT:
                     current_image = (current_image - 1) %len(artworks)
+            if event.type == auto_cycle:
+                current_image = (current_image + 1) % len(artworks)
         screen.fill ((0, 0, 0))
         image = scale_image(artworks[current_image], screen.get_size())
         x = (screen.get_width() - image.get_width()) // 2
