@@ -28,6 +28,11 @@ def main():
                     current_image = (current_image + 1) % len(artworks)
                 elif event.key == pygame.K_LEFT:
                     current_image = (current_image - 1) %len(artworks)
-
+        screen.fill ((0, 0, 0))
+        image = pygame.transform.scale(artworks[current_image], screen.get_size())
+        screen.blit(image, (0, 0))
+        pygame.display.flip()
+    pygame.QUIT
+    
 if __name__ == "__main__":
     main()
