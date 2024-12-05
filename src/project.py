@@ -40,8 +40,7 @@ def add_images(folder):
         if file_path.endswith(('.png', '.jpg','.jpeg')):
             try:
                 shutil.copy(file_path, folder)
-                print(f"Your image was successfully added!!
-                       Image is now in {folder}, how exciting!!")
+                print(f"Your image was successfully added!! Image is now in {folder}, how exciting!!")
             except Exception as e:
                 print(f"Failed to add image: {e} :(")
         else:
